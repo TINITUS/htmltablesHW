@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Calculator</title>
+    <style>
+        body{
+            font-family: Verdana, sans-serif;
+            font-size: 20px;
+        }
+        table{
+            background-color: gray;
+        }
+        td{
+            text-align: center;
+            position: relative;
+            padding:2px;
+            background-color: white;
+        }
+        .button{
+            text-align: center;
+            display: block;
+            position: relative;
+            color: #000000;
+            text-decoration: none;
+            width: 64px;
+            height: 45px;
+            padding-top: 15px;
+            border: gray 1px solid;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+            background-image: -webkit-gradient(
+                linear,
+                right bottom,
+                right top,
+                color-stop(0, #DBDBDB),
+                color-stop(0.5, #FFFFFF)
+            );
+            background-image: -o-linear-gradient(top, #DBDBDB 0%, #FFFFFF 50%);
+            background-image: -moz-linear-gradient(top, #DBDBDB 0%, #FFFFFF 50%);
+            background-image: -webkit-linear-gradient(top, #DBDBDB 0%, #FFFFFF 50%);
+            background-image: -ms-linear-gradient(top, #DBDBDB 0%, #FFFFFF 50%);
+            background-image: linear-gradient(to top, #DBDBDB 0%, #FFFFFF 50%);
+        }
+        .button:hover{
+            background-image: -webkit-gradient(
+                linear,
+                right bottom,
+                right top,
+                color-stop(0.5, #FFFFFF),
+                color-stop(1, #DBDBDB)
+            );
+            background-image: -o-linear-gradient(top, #FFFFFF 50%, #DBDBDB 100%);
+            background-image: -moz-linear-gradient(top, #FFFFFF 50%, #DBDBDB 100%);
+            background-image: -webkit-linear-gradient(top, #FFFFFF 50%, #DBDBDB 100%);
+            background-image: -ms-linear-gradient(top, #FFFFFF 50%, #DBDBDB 100%);
+            background-image: linear-gradient(to top, #FFFFFF 50%, #DBDBDB 100%);
+        }
+        #display{
+            border: 1px solid #aaa;
+            letter-spacing: 2px;
+            text-align: right;
+            padding: 12px 26px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        var isCalculated;
+        function buttonPress(el){
+            var add = el.getAttribute("data-value"), display = document.getElementById('display');
+            switch(add){
+                case "=":
+                    display.value = eval(display.value);
+                    isCalculated = true;
+                    break;
+                case "C":
+                    display.value = "";
+                    break;
+                default:
+                    if(isCalculated){
+                        if(add != "+" && add != "-" && add != "*" && add != "/"){
+                            display.value = "";
+                        }
+                        display.value+= add;
+                        isCalculated = false;
+                    }else{
+                        display.value+= add;
+                    }
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <td colspan="4">
+                <!-- input set to read only so only the calculator kbd avaiable can be used -->
+                <input id="display" type="text" readonly placeholder="Calculator 0.0.1"/>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a onclick="buttonPress(this);" class="button" data-value="1" href="javascript:">1</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="2" href="javascript:">2</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="3" href="javascript:">3</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="+" href="javascript:">+</a></td>
+    </tr>
+    <tr>
+        <td><a onclick="buttonPress(this);" class="button" data-value="4" href="javascript:">4</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="5" href="javascript:">5</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="6" href="javascript:">6</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="-" href="javascript:">-</a></td>
+    </tr>
+    <tr>
+        <td><a onclick="buttonPress(this);" class="button" data-value="7" href="javascript:">7</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="8" href="javascript:">8</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="9" href="javascript:">9</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="*" href="javascript:">*</a></td>
+    </tr>
+    <tr>
+        <td><a onclick="buttonPress(this);" class="button" data-value="C" href="javascript:">C</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="0" href="javascript:">0</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="=" href="javascript:">=</a></td>
+        <td><a onclick="buttonPress(this);" class="button" data-value="/" href="javascript:">/</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

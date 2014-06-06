@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Website Header*</title>
+    <style>
+        body{
+            font-family: Verdana, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        #notify{
+            position:absolute;
+            top:6px;
+            right: 0;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 25px 2px;
+            background-image: url(images/notificationsIcon.png);
+            display: block;
+            width: 38px;
+            height: 19px;
+            padding: 6px 5px;
+        }
+
+        .downArrow{
+            position: absolute;
+            top:15px;
+            right: 5px;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #ffffff;
+        }
+        
+        table{
+            background: #234465;
+            color: #fff;
+        }
+        table td{
+            position: relative;
+            text-transform: uppercase;
+        }
+        table td a{
+            text-decoration: none;
+            color: white;
+        }
+        .navigation,.tools{
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .tools{
+            margin-right: 20px;
+        }
+        .tools td {
+            padding: 4px;
+        }
+        #user{
+            display: block;
+            width: 50px;
+            position: relative;
+            padding: 7px 12px;
+        }
+        .tools input{
+            vertical-align: top;
+            background-color: white;
+            border: 1px solid #a6a6b6;
+            font-size: 1rem;
+            outline: 0 none;
+        }
+        .tools input.search{
+            float: left;
+            height: 32px;
+            width: 220px;
+            margin: 0;
+            padding-left: 5px;
+            color: #367cae;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        .tools input.button{
+            height: 36px;
+            width: 34px;
+            background-image: url("images/search32x32.png");
+            -webkit-border-top-right-radius: 5px;
+            -webkit-border-bottom-right-radius: 5px;
+            -moz-border-radius-topright: 5px;
+            -moz-border-radius-bottomright: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .navigation {
+            border-collapse: separate;
+        }
+        .navigation td {
+            padding: 4px;
+        }
+        nav ul{
+            list-style: none;
+        }
+        nav ul li{
+            position: relative;
+            display: inline-block;
+            padding-right: 20px;
+            padding-left: 5px;
+            height: 24px;
+            padding-top: 10px;
+        }
+        nav ul li:hover, #user:hover, #notify:hover {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            background-color: orange;
+        }
+
+    </style>
+</head>
+<body>
+<table width="100%">
+    <tr>
+        <td rowspan="2" align="center">
+            <img src="images/headerLogo.png"/>
+        </td>
+        <td align="right">
+            <table class="tools">
+                <tr>
+                    <td width="25px"><span id="notify">0</span></td>
+                    <td width="54px"><a href="javascript:"><span id="user">User <span class="downArrow"></span></span></a></td>
+                    <td>
+                        <form method="get" autocomplete="off" action="https://softuni.bg/Search/Results" novalidate="novalidate">
+                            <input name="query" type="text" placeholder="Търси..." class="search"/>
+                            <input type="submit" value="" class="button"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <table class="navigation">
+                <tr>
+                    <td>
+                        <nav>
+                            <ul>
+                                <li><a href="https://softuni.bg/news">новини</a></li>
+                                <li><a href="javascript:">за университета</a><span class="downArrow"></span></li>
+                                <li><a href="javascript:">обучения</a><span class="downArrow"></span></li>
+                                <li><a href="https://softuni.bg/companies">за фирми</a></li>
+                                <li><a href="https://softuni.bg/forum">форум</a></li>
+                                <li><a href="https://softuni.bg/contacts">контакти</a></li>
+                            </ul>
+                        </nav>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
